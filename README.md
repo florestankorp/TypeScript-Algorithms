@@ -33,8 +33,8 @@ This project comes pre-configured with:
 
 ```
 .
+├── main.ts
 ├── src
-│   ├── main.ts
 │   ├── data
 │   ├── graph
 │   └── models
