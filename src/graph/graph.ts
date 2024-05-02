@@ -1,6 +1,15 @@
 /* eslint-disable @typescript-eslint/parameter-properties */
 /* eslint-disable @typescript-eslint/no-magic-numbers */
-
+/**
+ * Implements a graph and provides search methods for path-finding.
+ * Constructor requires nodes and edges to build the adjacencyList.
+ *
+ * To keep things simple <T> is used for keys and values, but can be extended
+ * with <K,V> later down the road if nodes need to carry metadata for example.
+ *
+ *
+ * https://en.wikipedia.org/wiki/Graph_(abstract_data_type)
+ */
 export class Graph<T> {
   private readonly adjacencyList = new Map<T, T | []>();
 
@@ -94,6 +103,5 @@ export class Graph<T> {
 
   private addEdge(origin: T, destination: T): void {
     (this.adjacencyList.get(origin) as T[]).push(destination);
-    (this.adjacencyList.get(destination) as T[]).push(origin);
   }
 }
