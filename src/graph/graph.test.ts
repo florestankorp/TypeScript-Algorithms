@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { Graph } from './graph';
+import { moreMockEdges, moreMockNodes } from './graph.fixtures';
 
 describe('Graph', () => {
   const mockNodes = ['A', 'B', 'C', 'D'];
@@ -36,6 +37,18 @@ describe('Graph', () => {
         ['A', 'B'],
         ['A', 'C', 'B'],
         ['A', 'C', 'A', 'B'],
+      ]);
+    });
+
+    test('should find ALL routes between "A"->"Z" with extended testdata', () => {
+      const searchResult = new Graph<string>(
+        moreMockNodes,
+        moreMockEdges
+      ).breadthFirstSearch('A', 'Z');
+      expect(searchResult).toEqual([
+        ['A', 'Z'],
+        ['A', 'B', 'E', 'L', 'Z'],
+        ['A', 'B', 'F', 'M', 'A', 'Z'],
       ]);
     });
 

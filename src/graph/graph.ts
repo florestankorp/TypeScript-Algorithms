@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/parameter-properties */
 /* eslint-disable @typescript-eslint/no-magic-numbers */
+
 /**
  * Implements a graph and provides search methods for path-finding.
  * Constructor requires nodes and edges to build the adjacencyList.
@@ -103,5 +104,7 @@ export class Graph<T> {
 
   private addEdge(origin: T, destination: T): void {
     (this.adjacencyList.get(origin) as T[]).push(destination);
+    // If bi-directional traversal is allowed, the adjacencyList can be updated here
+    // (this.adjacencyList.get(destination) as T[]).push(origin);
   }
 }
