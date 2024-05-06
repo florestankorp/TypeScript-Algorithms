@@ -1,4 +1,14 @@
-export const moreMockNodes = [
+export const mockNodesBasic = ['A', 'B', 'C', 'D'];
+export const mockEdgesBasic = [
+  ['A', 'C'],
+  ['A', 'D'],
+  ['C', 'B'],
+  ['C', 'A'],
+  ['A', 'B'],
+  ['B', 'A'],
+];
+
+export const mockNodesExtended = [
   'A',
   'B',
   'C',
@@ -26,7 +36,7 @@ export const moreMockNodes = [
   'Y',
   'Z',
 ];
-export const moreMockEdges = [
+export const mockEdgesExtended = [
   ['A', 'B'],
   ['A', 'C'],
   ['A', 'Z'],

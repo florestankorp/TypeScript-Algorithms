@@ -1,24 +1,19 @@
 import { describe, expect, test } from 'vitest';
 import { Graph } from './graph';
-import { moreMockEdges, moreMockNodes } from './graph.fixtures';
+import {
+  mockEdgesBasic,
+  mockEdgesExtended,
+  mockNodesBasic,
+  mockNodesExtended,
+} from './graph.fixtures';
 
 describe('Graph', () => {
-  const mockNodes = ['A', 'B', 'C', 'D'];
-  const mockEdges = [
-    ['A', 'C'],
-    ['A', 'D'],
-    ['C', 'B'],
-    ['C', 'A'],
-    ['A', 'B'],
-    ['B', 'A'],
-  ];
-
-  const classUnderTest = new Graph<string>(mockNodes, mockEdges);
+  const basicGraph = new Graph<string>(mockNodesBasic, mockEdgesBasic);
 
   describe('adjacencyList', () => {
     test('should generate possible destinations for each node', () => {
       // eslint-disable-next-line @typescript-eslint/dot-notation
-      const destinations = new Graph(mockNodes, mockEdges)['adjacencyList'];
+      const destinations = basicGraph['adjacencyList'];
       expect(destinations).toEqual(
         new Map([
           ['A', ['C', 'D', 'B']],
@@ -32,7 +27,7 @@ describe('Graph', () => {
 
   describe('breadthFirstSearch', () => {
     test('should find ALL routes between "A"->"B"', () => {
-      const searchResult = classUnderTest.breadthFirstSearch('A', 'B');
+      const searchResult = basicGraph.breadthFirstSearch('A', 'B');
       expect(searchResult).toEqual([
         ['A', 'B'],
         ['A', 'C', 'B'],
@@ -42,8 +37,8 @@ describe('Graph', () => {
 
     test('should find ALL routes between "A"->"Z" with extended testdata', () => {
       const searchResult = new Graph<string>(
-        moreMockNodes,
-        moreMockEdges
+        mockNodesExtended,
+        mockEdgesExtended
       ).breadthFirstSearch('A', 'Z');
       expect(searchResult).toEqual([
         ['A', 'Z'],
@@ -53,20 +48,30 @@ describe('Graph', () => {
     });
 
     test('should find ALL routes between "C"->"D"', () => {
-      const searchResult = classUnderTest.breadthFirstSearch('C', 'D');
+      const searchResult = basicGraph.breadthFirstSearch('C', 'D');
       expect(searchResult).toEqual([['C', 'A', 'D']]);
     });
   });
 
   describe('depthFirstSearch', () => {
     test('should find ONE route between "A"->"B"', () => {
-      const searchResult = classUnderTest.depthFirstSearch('A', 'B');
+      const searchResult = basicGraph.depthFirstSearch('A', 'B');
       expect(searchResult).toEqual(new Set(['A', 'C', 'B']));
     });
 
     test('should find ONE route between "C"->"D"', () => {
-      const searchResult = classUnderTest.depthFirstSearch('C', 'D');
+      const searchResult = basicGraph.depthFirstSearch('C', 'D');
       expect(searchResult).toEqual(new Set(['C', 'B', 'A', 'D']));
+    });
+
+    test('should find ONE route between "A"->"Z" with extended testdata', () => {
+      const searchResult = new Graph<string>(
+        mockNodesExtended,
+        mockEdgesExtended
+      ).depthFirstSearch('A', 'Z');
+      expect(searchResult).toEqual(
+        new Set(['A', 'B', 'E', 'K', 'W', 'X', 'L', 'Y', 'M', 'Z'])
+      );
     });
   });
 });
