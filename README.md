@@ -1,25 +1,23 @@
-# TypeScript Node App Starter
+# TypeScript Node Starter
 
-Example project using TypeScript to build and search a graph.
+## See it in action
 
-You need [NodeJS](https://nodejs.org/en) to run this code!
+To showcase this setup and to make sure your workspace settings work I wrote an implementation of [DFS and BFS graph search algorithms](<https://en.wikipedia.org/wiki/Graph_(abstract_data_type)#Breadth_first_search_and_depth_first_search>).
+
+- [Implementation](./src/graph/graph.ts)
+- [Tests](./src/graph/graph.test.ts)
+
+You need [NodeJS](https://nodejs.org/en) to run this app.
 
 This project comes pre-configured with:
 
-* ESLint
-* Prettier
-* Vitest
+- ESLint
+- Prettier
+- Vitest
 
-**Recommended VSCode Extensions**
-
-`.vscode/extensions.json` 
-
-> **Note:** Make sure to enable `Experimental: Use Flat Config` to ensure ESLint works properly.
-
-**Install dependencies**
+## Install dependencies
 
 `$ npm install`
-
 
 ## Run it
 
@@ -28,6 +26,12 @@ This project comes pre-configured with:
 ## Testing
 
 `$ npm run test`
+
+## Recommended VSCode Extensions
+
+`.vscode/extensions.json`
+
+> **Note:** Make sure to enable `Experimental: Use Flat Config` to ensure ESLint works properly.
 
 ## Workspace
 
