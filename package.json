@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "npx ts-node main.ts",
+    "start": "npx tsx main.ts",
     "test": "vitest watch"
   },
   "devDependencies": {
