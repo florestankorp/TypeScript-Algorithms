@@ -11,12 +11,13 @@
  *
  * https://en.wikipedia.org/wiki/Graph_(abstract_data_type)
  */
+
 export class Graph<T> {
   private readonly adjacencyList = new Map<T, T | []>();
 
   public constructor(
-    private readonly nodes: Readonly<T[]>,
-    private readonly edges: readonly Readonly<T[]>[]
+    private readonly nodes: readonly T[],
+    private readonly edges: readonly (readonly T[])[],
   ) {
     this.build();
   }
@@ -64,9 +65,11 @@ export class Graph<T> {
    */
   public depthFirstSearch(
     start: T,
+
     finish: T,
+
     // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
-    visited = new Set<T>()
+    visited = new Set<T>(),
   ): Set<T> | null {
     const destinations = this.adjacencyList.get(start) as T[];
     visited.add(start);
@@ -93,7 +96,7 @@ export class Graph<T> {
       this.addNode(node);
     });
 
-    this.edges.forEach(([node1, node2]: Readonly<T[]>) => {
+    this.edges.forEach(([node1, node2]: readonly T[]) => {
       this.addEdge(node1, node2);
     });
   }
