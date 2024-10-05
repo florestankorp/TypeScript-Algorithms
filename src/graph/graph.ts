@@ -65,9 +65,7 @@ export class Graph<T> {
    */
   public depthFirstSearch(
     start: T,
-
     finish: T,
-
     // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
     visited = new Set<T>(),
   ): Set<T> | null {
