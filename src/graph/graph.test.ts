@@ -11,7 +11,7 @@ describe('Graph', () => {
   const graphBasicData = new Graph<string>(mockNodesBasic, mockEdgesBasic);
   const graphExtendedData = new Graph<string>(
     mockNodesExtended,
-    mockEdgesExtended
+    mockEdgesExtended,
   );
 
   describe('adjacencyList', () => {
@@ -24,7 +24,7 @@ describe('Graph', () => {
           ['B', ['A']],
           ['C', ['B', 'A']],
           ['D', []],
-        ])
+        ]),
       );
     });
   });
@@ -68,7 +68,7 @@ describe('Graph', () => {
     test('should find ONE route between "A"->"Z" with extended testdata', () => {
       const searchResult = graphExtendedData.depthFirstSearch('A', 'Z');
       expect(searchResult).toEqual(
-        new Set(['A', 'B', 'E', 'K', 'W', 'X', 'L', 'Y', 'M', 'Z'])
+        new Set(['A', 'B', 'E', 'K', 'W', 'X', 'L', 'Y', 'M', 'Z']),
       );
     });
   });
