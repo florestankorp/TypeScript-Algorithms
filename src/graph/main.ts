@@ -1,6 +1,6 @@
-import { airports, routes } from './src/data';
-import { Graph } from './src/graph';
-import { Airport } from './src/models';
+import { Graph } from '.';
+import { airports, routes } from './data';
+import { Airport } from './models';
 
 function main(): void {
   const airportGraph = new Graph<Airport>(airports, routes);

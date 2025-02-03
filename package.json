@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "npx tsx main.ts",
+    "graph": "npx tsx src/graph/main.ts",
     "test": "vitest watch",
     "lint": "npx eslint ."
   },
