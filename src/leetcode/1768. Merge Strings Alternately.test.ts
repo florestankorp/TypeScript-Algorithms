@@ -12,26 +12,26 @@ Return the merged string.
  */
 
 // function mergeAlternately(word1: string, word2: string): string {
-//   let i = 0;
-//   let j = 0;
+//     let res = [];
 
-//   const w1Length = word1.length;
-//   const w2Length = word2.length;
+//     for (let i = 0; i < Math.min(word1.length, word2.length); i++) {
+//         res.push(word1[i]);
+//         res.push(word2[i]);
+//     }
 
-//   const res: string[] = [];
+//     return res.join('') + longerWord(word1, word2)
+//         .split('')
+//         .slice(shorterWord(word1, word2).length)
+//         .join('');
 
-//   while (i < w1Length && j < w2Length) {
-//     res.push(word1[i]);
-//     res.push(word2[j]);
+// };
 
-//     i++;
-//     j++;
-//   }
+// function shorterWord(w1: string, w2: string): string {
+//     return w1.length > w2.length ? w2 : w1;
+// }
 
-//   res.push(word1.slice(i));
-//   res.push(word2.slice(j));
-
-//   return res.join('');
+// function longerWord(w1: string, w2: string): string {
+//     return w1.length > w2.length ? w1 : w2;
 // }
 
 function mergeAlternately(word1: string, word2: string): string {
